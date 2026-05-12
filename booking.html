@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Бронирование билета | AvtoVokzal Online</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Шапка страницы бронирования: логотип и навигация -->
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark">A</span>
+      <div>
+        <h1>AvtoVokzal Online</h1>
+        <p>Оформление заявки на билет</p>
+      </div>
+    </div>
+    <nav class="nav">
+      <a href="index.html">Главная</a>
+      <a href="schedule.html">Расписание</a>
+      <a href="booking.html">Билет</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Контент страницы: форма бронирования и памятка пассажира -->
+    <section class="grid-layout two page-panel">
+      <div class="panel">
+        <div class="section-heading">
+          <p class="eyebrow">Билет</p>
+          <h2>Данные пассажира</h2>
+        </div>
+        <form class="data-form">
+          <label>
+            ФИО пассажира
+            <input type="text" placeholder="Введите имя и фамилию" required>
+          </label>
+          <label>
+            Телефон
+            <input type="tel" placeholder="+994 XX XXX XX XX" required>
+          </label>
+          <label>
+            Маршрут
+            <select required>
+              <option>Баку - Гянджа, 08:30</option>
+              <option>Баку - Шеки, 10:15</option>
+              <option>Сумгаит - Баку, 11:00</option>
+              <option>Баку - Ленкорань, 13:40</option>
+            </select>
+          </label>
+          <label>
+            Количество билетов
+            <input type="number" min="1" max="5" value="1" required>
+          </label>
+          <button class="button primary" type="submit">Отправить заявку</button>
+        </form>
+      </div>
+
+      <aside class="panel">
+        <div class="section-heading">
+          <p class="eyebrow">Памятка</p>
+          <h2>Перед поездкой</h2>
+        </div>
+        <ul class="service-list">
+          <li><span>01</span>Приходите за 20 минут до отправления.</li>
+          <li><span>02</span>Проверьте номер платформы на табло.</li>
+          <li><span>03</span>Возьмите документ, указанный при бронировании.</li>
+          <li><span>04</span>Оплата выполняется в кассе автовокзала.</li>
+        </ul>
+      </aside>
+    </section>
+  </main>
+
+  <!-- Footer: общая информация об информационной системе -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div>
+        <h3>AvtoVokzal Online</h3>
+        <p>Онлайн информационная система для автовокзалов: расписание, статусы рейсов, свободные места и заявки на билет.</p>
+      </div>
+      <div>
+        <h4>Разделы</h4>
+        <a href="index.html">Главная</a>
+        <a href="schedule.html">Расписание</a>
+        <a href="booking.html">Бронирование</a>
+        <a href="contacts.html">Контакты</a>
+      </div>
+      <div>
+        <h4>Справка</h4>
+        <p>Телефон: +994 12 000 00 00</p>
+        <p>Email: info@avtovokzal.az</p>
+        <p>Время работы: 07:00 - 23:00</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 AvtoVokzal Online</span>
+      <span>Учебный проект на HTML, CSS и JavaScript</span>
+    </div>
+  </footer>
+</body>
+</html>

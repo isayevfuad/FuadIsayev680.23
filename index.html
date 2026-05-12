@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AvtoVokzal Online</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Шапка сайта: логотип и навигация между страницами проекта -->
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark">A</span>
+      <div>
+        <h1>AvtoVokzal Online</h1>
+        <p>Информационная система автовокзала</p>
+      </div>
+    </div>
+    <nav class="nav">
+      <a href="index.html">Главная</a>
+      <a href="schedule.html">Расписание</a>
+      <a href="booking.html">Билет</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Главный блок: краткое описание системы, кнопки и статистика автовокзала -->
+    <section class="hero">
+      <div class="hero-content">
+        <p class="eyebrow">Онлайн табло</p>
+        <h2>Быстрый доступ к рейсам, билетам и статусам отправления</h2>
+        <p class="hero-text">Система помогает пассажирам находить маршруты, проверять наличие мест и оформлять заявку на поездку.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#schedule">Найти рейс</a>
+          <a class="button ghost" href="#booking">Забронировать</a>
+        </div>
+        <div class="live-widget">
+          <div>
+            <span>Время автовокзала</span>
+            <strong id="stationClock">--:--:--</strong>
+          </div>
+          <div>
+            <span>Совет пассажиру</span>
+            <strong id="passengerTip">Проверьте платформу перед посадкой.</strong>
+          </div>
+        </div>
+      </div>
+      <div class="status-board" aria-label="Сводка автовокзала">
+        <div>
+          <span id="routeCount">0</span>
+          <p>рейсов сегодня</p>
+        </div>
+        <div>
+          <span id="seatCount">0</span>
+          <p>свободных мест</p>
+        </div>
+        <div>
+          <span id="nextRoute">--:--</span>
+          <p>ближайший рейс</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Панель поиска: фильтрация рейсов по городу, дате и статусу -->
+    <section class="panel tools" id="schedule">
+      <div class="section-heading">
+        <p class="eyebrow">Расписание</p>
+        <h2>Поиск рейсов</h2>
+      </div>
+      <form class="search-form" id="searchForm">
+        <label>
+          Откуда
+          <input type="text" id="fromInput" placeholder="Например: Баку">
+        </label>
+        <label>
+          Куда
+          <input type="text" id="toInput" placeholder="Например: Гянджа">
+        </label>
+        <label>
+          Дата
+          <input type="date" id="dateInput">
+        </label>
+        <label>
+          Статус
+          <select id="statusInput">
+            <option value="">Все</option>
+            <option value="По расписанию">По расписанию</option>
+            <option value="Посадка">Посадка</option>
+            <option value="Задержан">Задержан</option>
+          </select>
+        </label>
+        <button class="button primary" type="submit">Показать</button>
+        <button class="button soft" type="button" id="resetFilters">Сброс</button>
+      </form>
+    </section>
+
+    <!-- Табло рейсов: строки таблицы создаются через JavaScript -->
+    <section class="grid-layout">
+      <div class="panel">
+        <div class="section-heading row">
+          <div>
+            <p class="eyebrow">Рейсы</p>
+            <h2>Текущее табло</h2>
+          </div>
+          <span class="badge" id="resultCount">0 найдено</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Маршрут</th>
+                <th>Дата</th>
+                <th>Время</th>
+                <th>Платформа</th>
+                <th>Места</th>
+                <th>Цена</th>
+                <th>Статус</th>
+              </tr>
+            </thead>
+            <tbody id="routesTable"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <aside class="panel">
+        <div class="section-heading">
+          <p class="eyebrow">Информация</p>
+          <h2>Услуги вокзала</h2>
+        </div>
+        <ul class="service-list">
+          <li><span>01</span>Электронная справка о рейсах</li>
+          <li><span>02</span>Проверка свободных мест</li>
+          <li><span>03</span>Предварительное бронирование</li>
+          <li><span>04</span>Обновление статуса посадки</li>
+        </ul>
+      </aside>
+    </section>
+
+    <!-- Формы: бронирование билета и добавление нового рейса диспетчером -->
+    <section class="grid-layout two">
+      <div class="panel" id="booking">
+        <div class="section-heading">
+          <p class="eyebrow">Пассажир</p>
+          <h2>Бронирование билета</h2>
+        </div>
+        <form id="bookingForm" class="data-form">
+          <label>
+            ФИО пассажира
+            <input type="text" id="passengerName" required placeholder="Введите имя">
+          </label>
+          <label>
+            Телефон
+            <input type="tel" id="passengerPhone" required placeholder="+994 XX XXX XX XX">
+          </label>
+          <label>
+            Рейс
+            <select id="routeSelect" required></select>
+          </label>
+          <label>
+            Количество билетов
+            <input type="number" id="ticketCount" min="1" max="5" value="1" required>
+          </label>
+          <button class="button primary" type="submit">Оформить заявку</button>
+        </form>
+        <div class="message" id="bookingMessage" role="status"></div>
+      </div>
+
+      <div class="panel" id="admin">
+        <div class="section-heading">
+          <p class="eyebrow">Диспетчер</p>
+          <h2>Добавить рейс</h2>
+        </div>
+        <form id="adminForm" class="data-form">
+          <div class="split">
+            <label>
+              Откуда
+              <input type="text" id="adminFrom" required>
+            </label>
+            <label>
+              Куда
+              <input type="text" id="adminTo" required>
+            </label>
+          </div>
+          <div class="split">
+            <label>
+              Дата
+              <input type="date" id="adminDate" required>
+            </label>
+            <label>
+              Время
+              <input type="time" id="adminTime" required>
+            </label>
+          </div>
+          <div class="split">
+            <label>
+              Платформа
+              <input type="number" id="adminPlatform" min="1" required>
+            </label>
+            <label>
+              Места
+              <input type="number" id="adminSeats" min="1" required>
+            </label>
+          </div>
+          <div class="split">
+            <label>
+              Цена
+              <input type="number" id="adminPrice" min="1" required>
+            </label>
+            <label>
+              Статус
+              <select id="adminStatus">
+                <option>По расписанию</option>
+                <option>Посадка</option>
+                <option>Задержан</option>
+              </select>
+            </label>
+          </div>
+          <button class="button primary" type="submit">Добавить в табло</button>
+        </form>
+      </div>
+    </section>
+    <!-- Дополнительная информация для пассажиров в виде карточек -->
+    <section class="info-section">
+      <div class="section-heading">
+        <p class="eyebrow">Инфо для пассажиров</p>
+        <h2>Что делает систему удобной</h2>
+      </div>
+      <div class="info-grid">
+        <article class="info-card highlight">
+          <span>24/7</span>
+          <h3>Онлайн-доступ</h3>
+          <p>Пассажир может заранее посмотреть рейсы, платформу, свободные места и статус отправления.</p>
+        </article>
+        <article class="info-card">
+          <span>ТОП</span>
+          <h3>Популярные направления</h3>
+          <p>Баку - Гянджа, Баку - Шеки, Баку - Ленкорань и Сумгаит - Баку чаще всего выбирают пассажиры.</p>
+        </article>
+        <article class="info-card">
+          <span>INFO</span>
+          <h3>Умное табло</h3>
+          <p>Статусы помогают быстро понять, идет посадка, рейс задержан или автобус отправится по расписанию.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div>
+        <h3>AvtoVokzal Online</h3>
+        <p>Онлайн информационная система для автовокзалов: расписание, статусы рейсов, свободные места и заявки на билет.</p>
+      </div>
+      <div>
+        <h4>Разделы</h4>
+        <a href="index.html">Главная</a>
+        <a href="schedule.html">Расписание</a>
+        <a href="booking.html">Бронирование</a>
+        <a href="contacts.html">Контакты</a>
+      </div>
+      <div>
+        <h4>Справка</h4>
+        <p>Телефон: +994 12 000 00 00</p>
+        <p>Email: info@avtovokzal.az</p>
+        <p>Время работы: 07:00 - 23:00</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 AvtoVokzal Online</span>
+      <span>Учебный проект на HTML, CSS и JavaScript</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

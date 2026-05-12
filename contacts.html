@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Контакты | AvtoVokzal Online</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Шапка страницы контактов: единая навигация проекта -->
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark">A</span>
+      <div>
+        <h1>AvtoVokzal Online</h1>
+        <p>Справочная служба автовокзала</p>
+      </div>
+    </div>
+    <nav class="nav">
+      <a href="index.html">Главная</a>
+      <a href="schedule.html">Расписание</a>
+      <a href="booking.html">Билет</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Контактная информация и форма обратной связи -->
+    <section class="grid-layout two page-panel">
+      <div class="panel">
+        <div class="section-heading">
+          <p class="eyebrow">Связь</p>
+          <h2>Контакты автовокзала</h2>
+        </div>
+        <ul class="service-list">
+          <li><span>Адрес</span>г. Баку, центральный автовокзал</li>
+          <li><span>Тел.</span>+994 12 000 00 00</li>
+          <li><span>Email</span>info@avtovokzal.az</li>
+          <li><span>Время</span>Ежедневно, 07:00 - 23:00</li>
+        </ul>
+      </div>
+
+      <div class="panel">
+        <div class="section-heading">
+          <p class="eyebrow">Обратная связь</p>
+          <h2>Написать сообщение</h2>
+        </div>
+        <form class="data-form">
+          <label>
+            Ваше имя
+            <input type="text" placeholder="Введите имя" required>
+          </label>
+          <label>
+            Телефон или email
+            <input type="text" placeholder="Контакт для ответа" required>
+          </label>
+          <label>
+            Сообщение
+            <textarea placeholder="Введите текст сообщения" required></textarea>
+          </label>
+          <button class="button primary" type="submit">Отправить</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer: ссылки, контакты и краткое описание проекта -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div>
+        <h3>AvtoVokzal Online</h3>
+        <p>Онлайн информационная система для автовокзалов: расписание, статусы рейсов, свободные места и заявки на билет.</p>
+      </div>
+      <div>
+        <h4>Разделы</h4>
+        <a href="index.html">Главная</a>
+        <a href="schedule.html">Расписание</a>
+        <a href="booking.html">Бронирование</a>
+        <a href="contacts.html">Контакты</a>
+      </div>
+      <div>
+        <h4>Справка</h4>
+        <p>Телефон: +994 12 000 00 00</p>
+        <p>Email: info@avtovokzal.az</p>
+        <p>Время работы: 07:00 - 23:00</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 AvtoVokzal Online</span>
+      <span>Учебный проект на HTML, CSS и JavaScript</span>
+    </div>
+  </footer>
+</body>
+</html>

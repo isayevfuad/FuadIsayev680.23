@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Расписание рейсов | AvtoVokzal Online</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Шапка страницы расписания: переходы между разделами сайта -->
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark">A</span>
+      <div>
+        <h1>AvtoVokzal Online</h1>
+        <p>Расписание междугородних автобусов</p>
+      </div>
+    </div>
+    <nav class="nav">
+      <a href="index.html">Главная</a>
+      <a href="schedule.html">Расписание</a>
+      <a href="booking.html">Билет</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Основное расписание: статическая таблица рейсов для отдельной страницы -->
+    <section class="panel page-panel">
+      <div class="section-heading">
+        <p class="eyebrow">Табло рейсов</p>
+        <h2>Расписание на сегодня</h2>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Маршрут</th>
+              <th>Время</th>
+              <th>Платформа</th>
+              <th>Места</th>
+              <th>Цена</th>
+              <th>Статус</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Баку - Гянджа</strong></td>
+              <td>08:30</td>
+              <td>3</td>
+              <td>18</td>
+              <td>12 AZN</td>
+              <td><span class="route-status status-boarding">Посадка</span></td>
+            </tr>
+            <tr>
+              <td><strong>Баку - Шеки</strong></td>
+              <td>10:15</td>
+              <td>5</td>
+              <td>26</td>
+              <td>14 AZN</td>
+              <td><span class="route-status status-ok">По расписанию</span></td>
+            </tr>
+            <tr>
+              <td><strong>Сумгаит - Баку</strong></td>
+              <td>11:00</td>
+              <td>2</td>
+              <td>9</td>
+              <td>4 AZN</td>
+              <td><span class="route-status status-late">Задержан</span></td>
+            </tr>
+            <tr>
+              <td><strong>Баку - Ленкорань</strong></td>
+              <td>13:40</td>
+              <td>7</td>
+              <td>31</td>
+              <td>11 AZN</td>
+              <td><span class="route-status status-ok">По расписанию</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer: контакты и быстрые ссылки проекта -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div>
+        <h3>AvtoVokzal Online</h3>
+        <p>Онлайн информационная система для автовокзалов: расписание, статусы рейсов, свободные места и заявки на билет.</p>
+      </div>
+      <div>
+        <h4>Разделы</h4>
+        <a href="index.html">Главная</a>
+        <a href="schedule.html">Расписание</a>
+        <a href="booking.html">Бронирование</a>
+        <a href="contacts.html">Контакты</a>
+      </div>
+      <div>
+        <h4>Справка</h4>
+        <p>Телефон: +994 12 000 00 00</p>
+        <p>Email: info@avtovokzal.az</p>
+        <p>Время работы: 07:00 - 23:00</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 AvtoVokzal Online</span>
+      <span>Учебный проект на HTML, CSS и JavaScript</span>
+    </div>
+  </footer>
+</body>
+</html>
